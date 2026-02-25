@@ -1,0 +1,9 @@
+matplotlib 
+numpy 
+scipy 
+pint 
+qutip 
+sympy 
+jupyter 
+qtconsole
+
