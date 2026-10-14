@@ -6,4 +6,7 @@ qutip
 sympy 
 jupyter 
 qtconsole
+ipykernel
+sympy-plot-backends
+ipympl
 

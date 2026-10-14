@@ -2,7 +2,7 @@ import os
 import sys
 
 
-NAS_PATH = "/mnt/NAS"
+NAS_PATH = "/mnt/nc"
 
 # check if nas is correctly mounted
 nas_dir_files = os.listdir(NAS_PATH)
@@ -13,8 +13,5 @@ if 'not_mounted' in nas_dir_files:
 else:
     print("Nas is mounted, moving to backup")
     # sync files using rsync
-    os.system("rsync -avP --delete --progress /mnt/SSHD/Speicher/ /mnt/NAS/00_Storage/")
-    
-
-
+    os.system(f"rsync -avP --delete --progress /mnt/SSHD/Speicher/ {NAS_PATH}/Speicher/")
 

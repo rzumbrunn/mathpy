@@ -4,7 +4,7 @@ from sympy import init_session
 import spb
 import numpy as np
 import pint
-import matplotlib
+import matplotlib as mpl
 import os
 
 os.environ["XDG_SESSION_TYPE"] = "xcb"
@@ -12,7 +12,10 @@ import matplotlib.pyplot as plt
 
 # use qt backend
 # matplotlib.use("Qt5Agg")
+pint.Quantity.tbu = pint.Quantity.to_base_units
 u = pint.UnitRegistry()
+
+
 init_session(use_latex="mathjax")
 
 import io
@@ -34,14 +37,43 @@ def sympy_display(expr):
 
 ip.display_formatter.formatters['image/png'].for_type(Basic, sympy_display)
 
+def set_plot_mode(plot_mode):
+    """
+    Switch between matplotlib plot-modes:
+
+    ----
+    Args:
+     plot_mode: "inline", "widget", "popup"
+    """
+    ip = get_ipython()
+    if plot_mode == "inline":
+        if ip is not None:
+            ip.run_line_magic("matplotlib", "inline")
+    elif plot_mode == "widget":
+        if ip is not None:
+            ip.run_line_magic("matplotlib", "widget")
+    elif plot_mode == "popup":
+        #mpl.use("qtagg")
+        if ip is not None:
+            ip.run_line_magic("matplotlib", "qtagg")
+    else:
+        print(f"Unrecognized plot_mode: {plot_mode}. Options are: 'inline', 'widget', 'qtagg'")
+
 def sy_symbols():
     global x,y,z,a,b,c,t,d,i,j,k,n,hA,hB,hH
 
     x,y,z,a,b,c,t,d = sy.symbols("x,y,z,a,b,c,t,d")
     i,j,k,n = sy.symbols("i,j,k,n", integer=True)
-    hA= sy.Symbol('\hat A', commutative = False)
-    hB= sy.Symbol('\hat B', commutative = False)
-    hH= sy.Symbol('\hat H', commutative = False)
+    hA= sy.Symbol(r'\hat A', commutative = False)
+    hB= sy.Symbol(r'\hat B', commutative = False)
+    hH= sy.Symbol(r'\hat H', commutative = False)
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider
+from functools import wraps
+
+
 
 def start():
     print(
