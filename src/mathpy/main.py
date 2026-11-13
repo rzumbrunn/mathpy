@@ -6,6 +6,8 @@ import numpy as np
 import pint
 import matplotlib as mpl
 import os
+from errorprop.core import error_propagation as err_prop
+
 
 os.environ["XDG_SESSION_TYPE"] = "xcb"
 import matplotlib.pyplot as plt

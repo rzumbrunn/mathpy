@@ -8,7 +8,7 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         startup = Path(tmp) / "profile_default" / "startup"
         startup.mkdir(parents=True)
-        (startup / "00-mathpy.py").write_text("import mathpy.main\n")
+        (startup / "00-mathpy.py").write_text("from mathpy.main import *\n")
 
         env = {**os.environ, "QT_QPA_PLATFORM": "xcb", "IPYTHONDIR": tmp}
         cmd = [

@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "errorprop",
     "ipykernel>=7.4.0",
     "ipympl>=0.10.0",
     "jupyter>=1.1.1",
@@ -28,3 +29,11 @@ mathpy = "mathpy.console:main"
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [
+    "ErrorProp",
+]
+
+[tool.uv.sources]
+errorprop = { workspace = true }

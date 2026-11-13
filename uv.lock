@@ -7,6 +7,12 @@ resolution-markers = [
     "python_full_version < '3.14'",
 ]
 
+[manifest]
+members = [
+    "errorprop",
+    "mathpy",
+]
+
 [[package]]
 name = "anyio"
 version = "4.16.0"
@@ -494,6 +500,17 @@ sdist = { url = "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124
 wheels = [
     { url = "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61", size = 25604, upload-time = "2021-03-08T10:59:24.45Z" },
 ]
+
+[[package]]
+name = "errorprop"
+version = "0.1.0"
+source = { editable = "ErrorProp" }
+dependencies = [
+    { name = "sympy" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "sympy", specifier = ">=1.14.0" }]
 
 [[package]]
 name = "executing"
@@ -1245,6 +1262,7 @@ name = "mathpy"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "errorprop" },
     { name = "ipykernel" },
     { name = "ipympl" },
     { name = "jupyter" },
@@ -1261,6 +1279,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "errorprop", editable = "ErrorProp" },
     { name = "ipykernel", specifier = ">=7.4.0" },
     { name = "ipympl", specifier = ">=0.10.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
