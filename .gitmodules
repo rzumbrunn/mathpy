@@ -1,0 +1,3 @@
+[submodule "ErrorProp"]
+	path = ErrorProp
+	url = git@github.com:rzumbrunn/ErrorProp.git
