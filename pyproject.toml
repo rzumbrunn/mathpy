@@ -1,0 +1,30 @@
+[project]
+name = "mathpy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Raphael Zumbrunn", email = "rzumbrunn@ethz.ch" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "ipympl>=0.10.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pint>=0.26.2",
+    "pyqt5>=5.15.11",
+    "qtconsole>=5.7.2",
+    "qutip>=5.3.1",
+    "scipy>=1.18.1",
+    "sympy>=1.14.0",
+    "sympy-plot-backends>=4.2.0",
+]
+
+[project.scripts]
+mathpy = "mathpy.console:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
